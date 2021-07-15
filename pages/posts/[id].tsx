@@ -21,7 +21,6 @@ const PostPage = ({ ...serverPost }) => {
   const [post, setPost] = React.useState<any>(serverPost);
   const [comment, setComment] = React.useState("");
   const router = useRouter();
-  console.log(post)
   const titleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setComment(e.currentTarget.value);
   };
@@ -56,7 +55,7 @@ const PostPage = ({ ...serverPost }) => {
         <h4>Comments</h4>
         {post.serverPost.comments.length ? (
           <Container maxWidth="sm">
-            {post.serverPost.comments.map((comment) => (
+            {post.serverPost.comments.map((comment: any) => (
               <List key={comment.id}>
                 <ListItem style={{ borderBottom: "1px solid lightgray" }}>
                   <ListItemText>{comment.body}</ListItemText>
